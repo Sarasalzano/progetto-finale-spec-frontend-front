@@ -92,3 +92,21 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+/* CITY STATS */
+.city-stats-row {
+  width: 80%;
+  margin: 0 auto;
+  background-color: aqua;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.city-stats-card {
+  text-align: center;
+  flex-grow: 1;
+  background-color: blue;
+}

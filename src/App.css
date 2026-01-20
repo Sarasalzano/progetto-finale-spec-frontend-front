@@ -39,6 +39,24 @@
 }
 
 .search-bar-container {
-    background-color:yellow;
-    text-align: center;
+  background-color: yellow;
+  text-align: center;
+}
+
+/* HERO */
+.hero-content {
+  width: 80%;
+  height: 220px;
+  background-color: #0d6169;
+  margin: 20px auto;
+  border-radius: 20px;
+  position: relative;
+}
+
+.hero-icon {
+  width: 130px;
+  opacity: 0.1;
+  position: absolute;
+  right: 20px;
+  bottom: 0;
 }

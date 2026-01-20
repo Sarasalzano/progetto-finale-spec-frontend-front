@@ -60,3 +60,13 @@
   right: 20px;
   bottom: 0;
 }
+
+/* CONTROLS BAR */
+.controls-container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    background-color: aqua;
+    align-items: center;
+    justify-content: space-between;
+}

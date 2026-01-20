@@ -63,10 +63,32 @@
 
 /* CONTROLS BAR */
 .controls-container {
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    background-color: aqua;
-    align-items: center;
-    justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  background-color: aqua;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* CARD */
+.card {
+  width: calc(25% - 20px);
+  height: 100px;
+  margin: 10px;
+  border-radius: 20px;
+  background-color: azure;
+}
+
+.card-row {
+  width: 80%;
+  margin: 20px auto;
+  background-color: bisque;
+}
+
+.cards-container {
+  background-color: #0d6169;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }

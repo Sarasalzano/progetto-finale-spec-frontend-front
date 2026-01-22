@@ -1,7 +1,7 @@
 import Logo from "../assets/logo.png";
 import SearchBar from "./SearchBar";
 
-export default function Header() {
+export default function Header({ search, setSearch }) {
   return (
     <header>
       <div className="header-row">
@@ -10,7 +10,7 @@ export default function Header() {
           <h2>Wanderlust</h2>
         </div>
         <div className="header-col-center">
-          <SearchBar />
+          <SearchBar search={search} setSearch={setSearch} />
         </div>
         <div className="header-col-right">
           <button>Favorites</button>

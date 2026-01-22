@@ -11,6 +11,8 @@ export default function Homepage() {
   const [categories, setCategories] = useState("");
   //stato che racchiude l'ordine alfabetico delle città
   const [order, setOrder] = useState("Name: A-Z");
+  //stato che racchiude ricerca searchBar
+  const [search, setSearch] = useState("");
 
   //fetch per ottenere titolo e categoria città
   useEffect(() => {
@@ -40,16 +42,22 @@ export default function Homepage() {
     }
   });
 
+  //crea logica della barra di ricerca
+  // filtra le città confrontando il titolo con il testo della search ignorando maiuscole e minuscole e spazi inutili
+  const searchedCities = sortedCities.filter((city) =>
+    city.title.toLowerCase().trim().includes(search.toLowerCase().trim()),
+  );
+
   return (
     <>
-      <Header />
+      <Header search={search} setSearch={setSearch} />
       <Hero />
       <CityControls
         setCategories={setCategories}
         order={order}
         setOrder={setOrder}
       />
-      <CardList sortedCities={sortedCities} />
+      <CardList searchedCities={searchedCities} />
     </>
   );
 }

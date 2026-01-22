@@ -1,13 +1,23 @@
-export default function CityControls() {
+export default function CityControls({
+  setCategories,
+  order,
+  setOrder,
+}) {
   return (
     <div className="controls-container">
       <div className="btn-container">
-        <button>All</button>
-        <button>Beaches</button>
-        <button>Cities</button>
-        <button>Mountains</button>
+        <button onClick={() => setCategories("")}>All</button>
+        <button onClick={() => setCategories("Beaches")}>Beaches</button>
+        <button onClick={() => setCategories("Cities")}>Cities</button>
+        <button onClick={() => setCategories("Mountains")}>Mountains</button>
       </div>
-      <div className="select-container">
+      <div
+        className="select-container"
+        // valore corrente della select (default A-Z)
+        value={order}
+        // al cambio della select, aggiorna lo stato Order
+        onChange={(e) => setOrder(e.target.value)}
+      >
         <select>
           <option value="Name: A-Z">Name: A-Z</option>
           <option value="Name: Z-A">Name: Z-A</option>

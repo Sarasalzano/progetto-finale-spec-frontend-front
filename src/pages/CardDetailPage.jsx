@@ -2,6 +2,11 @@ import { useEffect, useState } from "react";
 //UseParams per leggere l'id dall' URL
 import { useParams } from "react-router-dom";
 import CityStats from "../components/CityStats";
+import CostOfliving from "../components/CostOfLiving";
+import SafetyandClimate from "../components/SafetyandClimate";
+import BestTimeToMove from "../components/BestTimeToMove";
+import Highlights from "../components/Highlights";
+import Amenities from "../components/Amenities";
 
 export default function CardDetailPage() {
   const [cityDetail, setCityDetail] = useState(null);
@@ -32,7 +37,25 @@ export default function CardDetailPage() {
         <h2>{cityDetail?.title}</h2>
         <span>{cityDetail?.country}</span>
       </header>
+
+      {/* Rating, Money per Day, Temperature */}
       <CityStats cityDetail={cityDetail} />
+      <div className="info-section-row">
+        {/* Cost della vita */}
+        <CostOfliving cityDetail={cityDetail} />
+
+        {/* Sicurezza e clima */}
+        <SafetyandClimate cityDetail={cityDetail} />
+      </div>
+
+      {/* Miglior momento per trasferirsi */}
+      <BestTimeToMove cityDetail={cityDetail} />
+
+      {/* Highlights */}
+      <Highlights cityDetail={cityDetail} />
+
+      {/* Amenities */}
+      <Amenities cityDetail={cityDetail} />
     </div>
   );
 }

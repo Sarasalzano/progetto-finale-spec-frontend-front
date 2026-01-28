@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import CityControls from "../components/CityControls";
 import CardList from "../components/CardList";
 import { useState, useEffect } from "react";
+import CompareAlert from "../components/CompareAlert";
 
 export default function Homepage() {
   //stato che racchiude title e category
@@ -13,6 +14,8 @@ export default function Homepage() {
   const [order, setOrder] = useState("Name: A-Z");
   //stato che racchiude ricerca searchBar
   const [search, setSearch] = useState("");
+  //stato che racchiude città selezionate per il comparatore
+  const [selectedCities, setSelectedCities] = useState([]);
 
   //fetch per ottenere titolo e categoria città
   useEffect(() => {
@@ -48,6 +51,20 @@ export default function Homepage() {
     city.title.toLowerCase().trim().includes(search.toLowerCase().trim()),
   );
 
+  //logica della selezione città per compare Alert
+  const handleSelectCity = (city) => {
+    //se la città cliccata è già selezionata, la rimuovi dallo stato e deselezioni
+    if (selectedCities.some((c) => c.id === city.id)) {
+      setSelectedCities(selectedCities.filter((c) => c.id !== city.id));
+    } else {
+      //seleziono massimo due città
+      if (selectedCities.length < 2) {
+        //copia array selectedCities e aggiungi city
+        setSelectedCities([...selectedCities, city]);
+      }
+    }
+  };
+
   return (
     <>
       <Header search={search} setSearch={setSearch} />
@@ -57,7 +74,13 @@ export default function Homepage() {
         order={order}
         setOrder={setOrder}
       />
-      <CardList searchedCities={searchedCities} />
+      <CardList
+        searchedCities={searchedCities}
+        selectedCities={selectedCities}
+        setSelectedCities={setSelectedCities}
+        handleSelectCity={handleSelectCity}
+      />
+      <CompareAlert selectedCities={selectedCities} />
     </>
   );
 }
